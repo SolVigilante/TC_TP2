@@ -1,15 +1,15 @@
 \section{Introduccción}
-El presente trabajo práctico tiene como objetivo familiarizarse con los instrumentos que permiten generar y medir señales de tensión, en este proyecto se trabajó con el generador de señales y el osciloscopio. También se busca aplicar conocimientos teóricos de respuesta transitoria y analizar el efecto de variar los valores de la resistencia, inductancia y capacitancia de un circuito de segundo orden en su respuesta transitoria.
+El presente trabajo práctico tiene como objetivo familiarizarse con los instrumentos que permiten generar y medir señales de tensión, en este proyecto se trabajó con el generador de señales KEYSIGHT EDU33212A y el osciloscopio RIGOL DS4014. También se busca aplicar conocimientos teóricos de respuesta transitoria y analizar el efecto de variar los valores de la resistencia, inductancia y capacitancia de un circuito de segundo orden en su respuesta transitoria.
 
 \subsection*{Circuito de primer orden (RL)}
-Para el circuito RL, la respuesta temporal de la tensión en la resistencia frente a un escalón de entrada se define como:
+Para el circuito RL, la respuesta temporal de la tensión en la resistencia frente a un escalón de entrada se define como (vr tensión en la resistencia, Vs tensión de la fuente):
 \[ v_R(t) = V_S \cdot (1 - e^{-t/\tau}) \quad (1)\]
 
-Donde $\tau$ es la constante de tiempo del circuito:
+Donde $\tau$ es la constante de tiempo del circuito (Req resistencia equivalente):
 \[ \tau = \frac{L}{R_{eq}} \quad (2)\]
 
-Donde la resistencia equivalente debe considerar las no idealidades de los componentes e instrumentos:
-\[ R_{eq} = R_{gen} + R_f + R_L \quad (3)\]
+Donde la resistencia equivalente debe considerar las no idealidades de los componentes e instrumentos (Rs resistencia del generador, Rf resistencia, RL resistencia del inductor):
+\[ R_{eq} = R_s + R_f + R_L \quad (3)\]
 
 \subsection*{Circuito de segundo orden (RLC)}
 En el circuito RLC serie, el comportamiento transitorio está regido por la siguiente ecuación característica:
