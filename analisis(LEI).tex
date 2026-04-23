@@ -1,9 +1,5 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
-\usepackage{float} % Required for images
-\usepackage{amsmath}
 
-\begin{document}
+
 
 \subsection{Análisis del circuito RL}
 El error del cálculo de $\tau$ es menor al 1\%. Este error resulta pequeño pues se han tenido en cuenta la no idealidad de los instrumentos utilizados en las simulaciones.Además, este error se encuentra dentro del error de medición de los instrumentos utilizados. Sin embargo, a la hora de realizar los cálculos se ha tenido en cuenta como el valor final de $V_{RF}$  2,40V cuando en la experiencia se midieron 2,42V. 
@@ -47,6 +43,20 @@ Si bien un mayor amortiguamiento reduce la frecuencia amortiguada $\omega_d$ y, 
 
 Al estimar alfa como depende del $V_C$ del sobrepico y del $t_{so}$ se obtuvo una diferencia del $60\%$ respecto del calculado. Este mismo error se arrastra al calcular el tiempo $\frac{5}{\alpha}$. Luego al calcular la resistencia equivalente del circuito a partir del $\alpha$ estimado se obtuvo que el valor de la resistencia en serie del inductor debe ser aproximadamente 167 veces mas grande. Estos resultados concuerdan con el analisis anterior ya que implican que el circuito es mas resistivo que el esperado.
 
+\subsection{Comparación Cualitativa de Capacitores}
+
+Lo primero que se observa en los gráficos \textbf{(REFERENCIAR GRÁFICOS)} es que el sistema RLC con menor capacitancia es el que alcanza el equilibrio en menor tiempo. En particular, en los gráficos \textbf{(REFERENCIAR GRÁFICO SOBRE Y CRÍTICO)} se aprecia que el circuito con un capacitor de 470,pF presenta una pendiente inicial significativamente mayor que el correspondiente a 5,6,nF, lo que indica una respuesta más rápida.
+
+Estos resultados experimentales son consistentes con el modelo teórico \textbf{(REFERENCIAR ECUACIONES DE $\alpha_s$ PARA RLC SERIE)}. En el régimen sobreamortiguado, la dinámica del sistema está gobernada por la raíz dominante del polinomio característico, $s_{\text{dom}} = -\alpha_s + \sqrt{\alpha_s^2 - \omega_0^2}$, la cual determina el tiempo característico de estabilización.
+
+En este caso, el parámetro $\alpha_s = \frac{R}{2L}$ se mantiene constante, mientras que la frecuencia natural $\omega_0 = \frac{1}{\sqrt{LC}}$ depende de la capacitancia. En particular, al disminuir $C$, aumenta $\omega_0$. Como consecuencia, el valor de $s_{\text{dom}}$ resulta más negativo para el circuito con menor capacitancia.
+
+Dado que el tiempo característico del sistema está asociado a $\tau \sim 1/|s_{\text{dom}}|$, una raíz  dominante más negativa implica un menor tiempo de establecimiento. Esto explica por qué el circuito con menor capacitancia alcanza el equilibrio más rápidamente.
+
+
+A su vez, en el gráfico \textbf{REFERENCIAR EL GRAFICO SUB} se aprecia un período de oscilación mayor en el circuito de mayor capacitancia. Esta observación resulta coherente con las ecuaciones \textbf{REFEERENCIAR ECUACIONES DE WD} pues la capacitancia es inversamente proporcional a $\omega_d$ que a su vez es inversamente proportcional al Período T (\textbf{REFERENCIAR ECUACION DEL PERIODO}). 
+
+
 \subsection{Opcional: Inductor con resistencia en paralelo}
 Al simular el mismo circuito modelando las pérdidas del inductor mediante una resistencia en paralelo, se observó que, cuanto mayor era el valor de $R_P$, más similar resultaba la respuesta a la de un circuito RLC ideal. Esto se debe a que, al aumentar $R_P$, la corriente que circula por la resistencia disminuye y, en consecuencia, la potencia disipada en dicha rama es menor.
 
@@ -72,14 +82,14 @@ R_P=\frac{(2\alpha L-R_F-R_V-R_S)^2+(\omega L)^2}{2\alpha L-R_F-R_V-R_S}
 
 Utilizando los valores experimentales obtenidos, se calculó un valor de $R_P \approx 2{,}5~\text{k}\Omega$.
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{simulacion_g_RP.png}
 \caption{Grafico en el tiempo de la diferencia de potencial en la fuente ( V(nin) ) y en el capacitor ( V(nout))con $R_L$ en parlelo}
 \label{fig:sim_g_RP} 
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{sim_g_RS.png}
 \caption{Grafico en el tiempo de la diferencia de potencial en la fuente ( V(nin) ) y en el capacitor ( V(nout)) con $R_L$ en serie}
@@ -92,4 +102,3 @@ En ambos casos, la respuesta mantiene un comportamiento subamortiguado, con pres
 
 Por otro lado, el modelo con resistencia en serie tiende a preservar mejor la forma global de la respuesta oscilatoria, manteniendo una relación más directa con el modelo teórico de un RLC serie ideal con pérdidas distribuidas uniformemente.
 
-\end{document}
