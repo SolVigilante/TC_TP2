@@ -4,9 +4,9 @@
 \subsection{Análisis del circuito RL}
 El error del cálculo de $\tau$ es menor al 1\%. Este error resulta pequeño pues se han tenido en cuenta la no idealidad de los instrumentos utilizados en las simulaciones.Además, este error se encuentra dentro del error de medición de los instrumentos utilizados. Sin embargo, a la hora de realizar los cálculos se ha tenido en cuenta como el valor final de $V_{RF}$  2,40V cuando en la experiencia se midieron 2,42V. 
 
-El valor medido de la tensión de $R_F$ es menos de 1\% menor que el valor calculado. Este error resulta coherente con el error de los instrumentos utilizados. En este caso, no resulta lógico que el valor de la tensión medida sea menor que el calculado pues el $\tau$ medido resultó ser mayor al esperado. Consideramos que este efecto es causa de haber calculado $\tau$ con un pequeño error. 
+El valor medido de la tensión de $R_F$ es menos de 1\% menor que el valor calculado. Este error resulta coherente con el error de los instrumentos utilizados. En este caso, resulta coherente que el valor de la tensión medida sea mayor que el calculado pues el $\tau$ medido resultó ser mayor al esperado. Por lo tanto, consideramos que el error es a causa del valor de $\tau$ medido.
 
-Por último, el resultado que presenta una mayor diferencia con el calculado de esta parte de la experiencia es el tiempo en el que $R_F$ llega al 95\% de su valor final. Este error es aproximadamente del 5\% siendo el valor medido menor al calculado. Podemos atribuirle este error a la acumulación de errores anteriores en el cálculo de $\tau$ y también por trabajar con una precisión mayor a la que el instrumento trabaja.
+Por último, el resultado que presenta una mayor diferencia con el calculado de esta parte de la experiencia es el tiempo en el que $R_F$ llega al 95\% de su valor final. Este valor es aproximadamente un 5\% menor al calculado. Podemos atribuirle este error a la acumulación de errores anteriores en el cálculo de $\tau$ y también por trabajar con una precisión mayor a la que el instrumento trabaja.
 
 
 De estos últimos resultados se puede concluir que el circuito tardará menos tiempo que el calculado en llegar al estado estacionario y que tendrá una tensión levente mayor al esperado. A nivel general, los resultados son coherentes con los calculados.
@@ -20,7 +20,7 @@ Al aumentar la resistencia paulatinamente, se observó la disminución de estos 
 \subsubsection{Sistema en amortiguamiento crítico}
 Se buscó encontrar experimentalmente el valor de la resistencia para el cual el tiempo de llegada al equilibrio fuera mínimo. Sin embargo, en la práctica resulta complicado variar manualmente la resistencia hasta encontrar el punto exacto en el cual el sistema se encuentra críticamente amortiguado. Esto se debe a que es muy difícil distinguir entre un sistema críticamente amortiguado, un sistema sobreamortiguado con una leve diferencia entre $\omega_0$ y $\alpha$, y un sistema subamortiguado con una frecuencia de oscilación muy baja.
 
-Se varió la resistencia de forma tal que, en el osciloscopio, se observara una curva con una pendiente pronunciada y sin sobrepico visible, intentando acercarnos lo mas posible al valor de la resistencia en el que $W_0 = \alpha_0$. No obstante, esta observación no implica que se haya alcanzado el valor real que minimiza el tiempo de estabilización.
+Se varió la resistencia de forma tal que, en el osciloscopio, se observara una curva con una pendiente pronunciada y sin sobrepico visible, intentando acercarnos lo mas posible al valor de la resistencia en el que $\omega_0 = \alpha_0$. No obstante, esta observación no implica que se haya alcanzado el valor real que minimiza el tiempo de estabilización.
 
 Consecuentemente, debido a las dificultades previamente mencionadas, al contrastar el valor calculado de la resistencia con el valor medido, el error resultante fue bastante grande, llegando aproximadamente al 10\%.
 
@@ -58,47 +58,46 @@ A su vez, en el gráfico \textbf{REFERENCIAR EL GRAFICO SUB} se aprecia un perí
 
 
 \subsection{Opcional: Inductor con resistencia en paralelo}
-Al simular el mismo circuito modelando las pérdidas del inductor mediante una resistencia en paralelo, se observó que, cuanto mayor era el valor de $R_P$, más similar resultaba la respuesta a la de un circuito RLC ideal. Esto se debe a que, al aumentar $R_P$, la corriente que circula por la resistencia disminuye y, en consecuencia, la potencia disipada en dicha rama es menor.
+Al simular el mismo circuito modelando las pérdidas del inductor mediante una resistencia en paralelo, se observó que, cuanto mayor era el valor de la resistencia en paralelo al inducto ( $R_P$ ), más similar resultaba la respuesta a la de un circuito RLC ideal. Esto se debe a que, al aumentar $R_P$, la corriente que circula por la resistencia disminuye y, en consecuencia, la potencia disipada en dicha rama es menor.
 
-En cambio, al tomar valores más pequeños de $R_P$, una mayor fracción de la corriente circula por la rama resistiva en paralelo, lo que incrementa las pérdidas del sistema y atenúa el efecto inductivo ideal. Como consecuencia, la respuesta transitoria presenta un mayor amortiguamiento y una menor oscilación.
+En cambio, al tomar valores más pequeños de $R_P$, una mayor fracción de la corriente circula por la rama resistiva en paralelo, lo que incrementa las pérdidas del sistema y atenúa el efecto inductivo ideal. Como consecuencia, la respuesta transitoria presenta un mayor amortiguamiento y una menor oscilación, semejandose mas a un circuito RC ideal.
 
-La resistencia en paralelo que debería tener el modelo del inductor para reproducir la resistencia equivalente calculada se obtiene a partir de la equivalencia serie-paralelo:
+La resistencia en paralelo que debería tener el modelo del inductor para reproducir la resistencia equivalente calculada se obtiene a partir de la equivalencia con la resistencia en serie ($R_{se}$):
 
 \[
-R_P=\frac{R_s^2+(\omega L)^2}{R_s}
+R_P=\frac{R_{se}+(\omega L)^2}{R_{se}}
 \]
 
 donde
 
 \[
-R_s = 2\alpha L - R_F - R_V - R_S
-\]
-
-Por lo tanto,
-
-\[
-R_P=\frac{(2\alpha L-R_F-R_V-R_S)^2+(\omega L)^2}{2\alpha L-R_F-R_V-R_S}
+R_{se} = 2\alpha L - R_F - R_V - R_S
 \]
 
 Utilizando los valores experimentales obtenidos, se calculó un valor de $R_P \approx 2{,}5~\text{k}\Omega$.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{simulacion_g_RP.png}
-\caption{Grafico en el tiempo de la diferencia de potencial en la fuente ( V(nin) ) y en el capacitor ( V(nout))con $R_L$ en parlelo}
+\includegraphics[width=1\textwidth]{simulacion_g_RP.png}
+\caption{Grafico en el tiempo de la diferencia de potencial en el capacitor ( V(nout))con $R_L$ en parlelo}
 \label{fig:sim_g_RP} 
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{sim_g_RS.png}
-\caption{Grafico en el tiempo de la diferencia de potencial en la fuente ( V(nin) ) y en el capacitor ( V(nout)) con $R_L$ en serie}
+\includegraphics[width=1\textwidth]{sim_g_RS.png}
+\caption{Grafico en el tiempo de la diferencia de potencial en el capacitor ( V(nout)) con $R_L$ en serie}
 \label{fig:sim_g_RS} 
 \end{figure}
 
-Al comparar la simulación utilizando un modelo de pérdidas en serie con aquella que emplea una resistencia en paralelo, se observa:
+Al comparar la simulación utilizando un modelo de pérdidas en serie con aquella que emplea una resistencia en paralelo, se observa que en ambos casos la respuesta mantiene un comportamiento subamortiguado, con presencia de sobrepico y oscilaciones decrecientes. Sin embargo se pudieron encontrar algunas discrepancias entre ambos modelos, aunque no sean simplemente perceptibles a simple vista en los graficos.
 
-En ambos casos, la respuesta mantiene un comportamiento subamortiguado, con presencia de sobrepico y oscilaciones decrecientes. Sin embargo, al utilizar una resistencia en paralelo, se observa una ligera reducción en la amplitud de las oscilaciones y un decaimiento más pronunciado en los primeros ciclos, lo que indica una disipación de energía más efectiva en ese rango temporal.
+Inicialmnete, se observo un leve aumento en la amplitud del sobrepico, siendo $V_C$ del sobrepico 7,71 V para el modelo con $R_P$ y 7,57 V para el modelo con resistencia serie. Este valor resulto más próximo al medido experimentalmente que fue de 7,78 V.
 
-Por otro lado, el modelo con resistencia en serie tiende a preservar mejor la forma global de la respuesta oscilatoria, manteniendo una relación más directa con el modelo teórico de un RLC serie ideal con pérdidas distribuidas uniformemente.
+Asimismo, el tiempo de sobrepico también presenta una mejor concordancia con el valor experimental al utilizar el modelo con resistencia en paralelo. En la simulación, se obtuvo un tiempo de 10,86 $\mu s$ con $R_P$, frente a 11,88 $\mu s$ con resistencia en serie, siendo el valor medido de 10,08 $\mu s$.
 
+Estas diferencias indican que el modelo con resistencia en paralelo logra representar con mayor precisión las pérdidas reales del inductor en el rango de frecuencias asociado a la respuesta transitoria. Esto puede deberse a que dicho modelo captura de forma más adecuada ciertos efectos no ideales del inductor, como pérdidas dependientes de la frecuencia o del comportamiento del núcleo magnético, como la histéresis previamente mensionada.
+
+Por otro lado, el modelo con resistencia en serie tiende a preservar mejor la estructura teórica de un circuito RLC ideal, pero no logra reproducir con la misma precisión los valores experimentales obtenidos.
+
+En consecuencia, si bien ambos modelos permiten representar el amortiguamiento del sistema, el modelo con resistencia en paralelo resulta más adecuado para aproximar el comportamiento real del circuito en este caso particular.
