@@ -1,0 +1,24 @@
+\subsection{Análisis del circuito RL}
+El error del cálculo de $\tau$ es menor al 1\%. Este error resulta pequeño pues se han tenido en cuenta la no idealidad de los instrumentos utilizados en las simulaciones.Además, este error se encuentra dentro del error de medición de los instrumentos utilizados. Sin embargo, a la hora de realizar los cálculos se ha tenido en cuenta como el valor final de $V_{RF}$  2,40V cuando en la experiencia se midieron 2,42V. 
+
+el valor medido de la tensión de $R_F$ es menos de 1\% menor que el valor calculado. Este error resulta coherente con el error de los instrumentos utilizados. En este caso, no resulta lógico que el valor de la tensión medida sea menor que el calculado pues el $\tau$ medido resultó ser mayor al esperado. Consideramos que este efecto es causa de haber calculado $\tau$ con un pequeño error. 
+
+Por último, el resultado que presenta una mayor diferencia con el calculado de esta parte de la experiencia es el tiempo en el que $R_F$ llega al 95\% de su valor final. Este error es aproximadamente del 5\% siendo el valor medido menor al calculado. Podemos atribuirle este error a la acumulación de errores anteriores en el cálculo de $\tau$ y también por trabajar con una precisión mayor a la que el instrumento trabaja.
+
+
+De estos últimos resultados se puede concluir que el circuito tardará menos tiempo que el calculado en llegar al estado estacionario y que tendrá una tensión levente mayor al esperado. A nivel general, los resultados son coherentes con los calculados.
+
+\subsection{Análisis del sistema RLC}
+\subsubsection{Sistema en Amortiguamiento Crítico}
+Se puede observar en la experiencia que al variar la resistencia $R_V$ cambia la respuesta transitoria. Cuando se disminuye, la respuesta transitoria oscila anes de llegar a estabilizarse; cuando se aumenta al máximo, el sistema tarda más de lo deseado en llegar al equilibrio. En este sentido, deberá haber un valor de resistencia para el cuál el tiempo en el que llegue al equlibrio sea el mínimo. 
+En este sentido, se ha calculado la resistencia y se ha constrastado con el valor medido. El error resultante es levemente mayor al 10\%. Este error se puede explicar porque en la práctica resulta complicado variar de forma manual la resistencia hasta encontrar el punto exacto en el cuál el sistema se encuentra críticamente amortiguado. Se ha variado la resistencia de forma tal que en el osciloscopio se vea una curva con una pendiente pronunciada. No obstante, esta observación no implica que sea el valor real que minimice el tiempo para que se estabilice. 
+
+
+\subsubsection{Sistema en Subamortiguamiento}
+El tiempo $\tau_1$ experimentalmente resulta ser un 6\% mayor al teórico. Este error no es significativamente alto pero puede ser producto de estar considerando una resistencia de la bobina más baja que la real. 
+
+La tensión $V_C$ medida luego de un tiempo $5\tau_1$ resulta ser menos de 1\% mayor a la estimada. Este resultado es incoherente con el planteo anterior. Ahora bien, puede tratarse de un error en la precisión de los instrumentos pues el valor esperado de esta parte de la experiencia es de 4,96V y la lectura fue de 5V. 
+
+De esta parte de la experiencia se puede concluir que es válida la aproximación de que el circuito llega al equilibrio pasados un tiempo $5\tau_1$.
+
+\newpage
